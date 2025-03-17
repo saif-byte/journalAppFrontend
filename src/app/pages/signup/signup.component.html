@@ -1,0 +1,34 @@
+<div class="auth-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>Username</label>
+    <input type="text" formControlName="userName" />
+    <small *ngIf="submitted && f.userName.errors?.required"
+      >Username is required.</small
+    >
+    <small *ngIf="submitted && f.userName.errors?.minlength"
+      >Minimum 3 characters required.</small
+    >
+
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+    <small *ngIf="submitted && f.email.errors?.required"
+      >Email is required.</small
+    >
+    <small *ngIf="submitted && f.email.errors?.email"
+      >Enter a valid email.</small
+    >
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+    <small *ngIf="submitted && f.password.errors?.required"
+      >Password is required.</small
+    >
+    <small *ngIf="submitted && f.password.errors?.minlength"
+      >Minimum 6 characters required.</small
+    >
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>

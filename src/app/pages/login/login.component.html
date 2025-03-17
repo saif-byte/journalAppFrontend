@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>Username</label>
+    <input type="text" formControlName="userName" />
+    <small *ngIf="submitted && f.userName.errors?.required"
+      >Username is required.</small
+    >
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+    <small *ngIf="submitted && f.password.errors?.required"
+      >Password is required.</small
+    >
+
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+</div>

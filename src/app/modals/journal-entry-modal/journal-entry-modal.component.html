@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add Journal Entry</h2>
+
+<form [formGroup]="journalForm" (ngSubmit)="submitEntry()">
+  <mat-dialog-content>
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput [formControl]="journalForm.controls['title']" />
+      <mat-error
+        *ngIf="
+          journalForm.controls['title'].invalid &&
+          journalForm.controls['title'].touched
+        "
+      >
+        Title is required!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Content</mat-label>
+      <textarea
+        matInput
+        [formControl]="journalForm.controls['content']"
+      ></textarea>
+      <mat-error
+        *ngIf="
+          journalForm.controls['content'].invalid &&
+          journalForm.controls['content'].touched
+        "
+      >
+        Content is required!
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="journalForm.invalid"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>
