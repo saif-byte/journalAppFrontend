@@ -26,6 +26,6 @@ export class HttpService {
   }
 
   saveJournalEntry(journalEntry: any): Observable<any> {
-    return this.http.get(`${this.BASE_URL}/journal/submit-entry`, journalEntry);
+    return this.http.post(`${this.BASE_URL}/journal/submit-entry`, journalEntry);
   }
 }
